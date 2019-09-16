@@ -15,8 +15,8 @@ except socket.error as e:
 s.listen(2)
 print("Waiting for a connection, Server Started")
 
-def threaded_client(conn):
 
+def threaded_client(conn):
     reply = ""
     while True:
         try:
@@ -36,8 +36,9 @@ def threaded_client(conn):
         except:
             break
 
+
 while True:
     conn, addr = s.accept()
     print("Connected to: ", addr)
 
-    start_new_thread(threaded_client, (conn))
+    start_new_thread(threaded_client(conn))
